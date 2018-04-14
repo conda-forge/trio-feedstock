@@ -24,7 +24,8 @@ requirements:
     - python
     - attrs
     - sortedcontainers
-    - async_generator >=1.6
+    - async_generator >=1.9
+    - contextvars
     - idna
     - cffi  # [win]
 
