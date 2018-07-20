@@ -27,6 +27,7 @@ requirements:
     - async_generator >=1.9
     - contextvars
     - idna
+    - outcome
     - cffi  # [win]
 
 test:
