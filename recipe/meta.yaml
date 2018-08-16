@@ -14,7 +14,7 @@ source:
 build:
   skip: True  # [py27]
   number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
   build:
@@ -25,9 +25,10 @@ requirements:
     - attrs
     - sortedcontainers
     - async_generator >=1.9
-    - contextvars
+    - contextvars >=2.1  # [py<37]
     - idna
     - outcome
+    - sniffio
     - cffi  # [win]
 
 test:
