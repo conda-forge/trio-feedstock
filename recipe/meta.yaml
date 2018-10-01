@@ -1,7 +1,7 @@
 {% set name = "trio" %}
-{% set version = "0.7.0" %}
+{% set version = "0.8.0" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "f6249159b62f88e8cca9e46af48fcfbf9e03914bc1a0f67beeaf1369b128c135" %}
+{% set hash_value = "63f5a7e5efecbba51bdb8c079efb7f57ca16c1c2ffd1dfe90fc98780962beb59" %}
 
 package:
   name: '{{ name|lower }}'
