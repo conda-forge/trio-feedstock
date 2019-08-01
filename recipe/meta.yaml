@@ -1,7 +1,7 @@
 {% set name = "trio" %}
-{% set version = "0.11.0" %}
+{% set version = "0.12.1" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "3796774aedbf5be581c68f98c79b565654876de6e9a01c6a95e3ec6cd4e4b4c3" %}
+{% set hash_value = "149a280a4c66ef08d058626e3f48bf979e6e079777d1fc5cae71676586ced672" %}
 
 package:
   name: '{{ name|lower }}'
@@ -13,7 +13,7 @@ source:
 
 build:
   skip: True  # [py27]
-  number: 1 
+  number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
