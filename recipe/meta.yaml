@@ -12,9 +12,9 @@ source:
   '{{ hash_type }}': '{{ hash_value }}'
 
 build:
-  skip: True  # [py27]
+  skip: True  # [py<35]
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   build:
@@ -22,14 +22,14 @@ requirements:
     - pip
   run:
     - python
-    - attrs >=18.2.0
+    - attrs >=19.2.0
     - sortedcontainers
     - async_generator >=1.9
     - contextvars >=2.1  # [py<37]
     - idna
     - outcome
     - sniffio
-    - cffi  # [win]
+    - cffi >=1.12  # [win]
 
 test:
   imports:
