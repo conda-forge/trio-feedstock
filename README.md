@@ -276,4 +276,5 @@ Feedstock Maintainers
 =====================
 
 * [@nicoddemus](https://github.com/nicoddemus/)
+* [@synapticarbors](https://github.com/synapticarbors/)
 
