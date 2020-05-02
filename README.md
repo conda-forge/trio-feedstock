@@ -26,7 +26,7 @@ Current build status
     <td>Drone</td>
     <td>
       <a href="https://cloud.drone.io/conda-forge/trio-feedstock">
-        <img alt="linux" src="https://img.shields.io/drone/build/conda-forge/master.svg?label=Linux">
+        <img alt="linux" src="https://img.shields.io/drone/build/conda-forge/trio-feedstock/master.svg?label=Linux">
       </a>
     </td>
   </tr>
@@ -276,4 +276,5 @@ Feedstock Maintainers
 =====================
 
 * [@nicoddemus](https://github.com/nicoddemus/)
+* [@synapticarbors](https://github.com/synapticarbors/)
 
