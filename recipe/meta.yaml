@@ -15,7 +15,7 @@ build:
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
-  build:
+  host:
     - python
     - pip
   run:
@@ -27,7 +27,7 @@ requirements:
     - idna
     - outcome
     - sniffio
-    - cffi >=1.12  # [win]
+    - cffi >=1.14  # [win]
 
 test:
   imports:
@@ -50,3 +50,4 @@ about:
 extra:
   recipe-maintainers:
     - nicoddemus
+    - synapticarbors
