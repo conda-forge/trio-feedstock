@@ -10,7 +10,7 @@ source:
   sha256: 670a52d3115d0e879e1ac838a4eb999af32f858163e3a704fe4839de2a676070
 
 build:
-  skip: true  # [py<35]
+  skip: true  # [py<37]
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
@@ -26,7 +26,6 @@ requirements:
     - attrs >=19.2.0
     - sortedcontainers
     - async_generator >=1.9
-    - contextvars >=2.1  # [py<37]
     - idna
     - outcome
     - sniffio
