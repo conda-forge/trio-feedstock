@@ -1,5 +1,5 @@
 {% set name = "trio" %}
-{% set version = "0.19.0" %}
+{% set version = "0.20.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 895e318e5ec5e8cea9f60b473b6edb95b215e82d99556a03eb2d20c5e027efe1
+  sha256: 670a52d3115d0e879e1ac838a4eb999af32f858163e3a704fe4839de2a676070
 
 build:
-  skip: true  # [py<35]
-  number: 1
+  skip: true  # [py<37]
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
@@ -26,7 +26,6 @@ requirements:
     - attrs >=19.2.0
     - sortedcontainers
     - async_generator >=1.9
-    - contextvars >=2.1  # [py<37]
     - idna
     - outcome
     - sniffio
