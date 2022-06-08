@@ -29,7 +29,7 @@ requirements:
     - idna
     - outcome
     - sniffio
-    - cffi >=1.14  # [win]
+    - cffi >=1.14  # [win and not python_impl == 'pypy']
 
 test:
   imports:
