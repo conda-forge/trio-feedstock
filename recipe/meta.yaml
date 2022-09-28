@@ -30,6 +30,7 @@ requirements:
     - outcome
     - sniffio
     - cffi >=1.14  # [win and not python_impl == 'pypy']
+    - exceptiongroup >=1.0.0rc9  # [py<311]
 
 test:
   imports:
