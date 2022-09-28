@@ -1,5 +1,5 @@
 {% set name = "trio" %}
-{% set version = "0.21.0" %}
+{% set version = "0.22.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 523f39b7b69eef73501cebfe1aafd400a9aad5b03543a0eded52952488ff1c13
+  sha256: ce68f1c5400a47b137c5a4de72c7c901bd4e7a24fbdebfe9b41de8c6c04eaacf
 
 build:
   skip: true  # [py<37]
@@ -30,6 +30,7 @@ requirements:
     - outcome
     - sniffio
     - cffi >=1.14  # [win and not python_impl == 'pypy']
+    - exceptiongroup >=1.0.0rc9  # [py<311]
 
 test:
   imports:
