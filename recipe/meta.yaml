@@ -41,6 +41,10 @@ test:
     - trio._tests
     - trio._tools
     - trio._subprocess_platform
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/python-trio/trio
