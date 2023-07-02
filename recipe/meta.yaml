@@ -23,9 +23,8 @@ requirements:
     - pip
   run:
     - python
-    - attrs >=19.2.0
+    - attrs >=20.1.0
     - sortedcontainers
-    - async_generator >=1.9
     - idna
     - outcome
     - sniffio
@@ -36,10 +35,12 @@ test:
   imports:
     - trio
     - trio._core
-    - trio._core.tests
-    - trio._core.tests.test_multierror_scripts
+    - trio._core._tests
+    - trio._core._tests.test_multierror_scripts
     - trio.testing
-    - trio.tests
+    - trio._tests
+    - trio._tools
+    - trio._subprocess_platform
 
 about:
   home: https://github.com/python-trio/trio
