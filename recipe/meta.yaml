@@ -11,7 +11,7 @@ source:
 
 build:
   skip: true  # [py<37]
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
@@ -27,7 +27,7 @@ requirements:
     - sortedcontainers
     - idna
     - outcome
-    - sniffio
+    - sniffio >=1.3.0
     - cffi >=1.14  # [win and not python_impl == 'pypy']
     - exceptiongroup >=1.0.0rc9  # [py<311]
 
