@@ -17,4 +17,4 @@ provider:
   win: azure
 azure:
   store_build_artifacts: true
-test_on_native_only: true
+test: native_and_emulated
