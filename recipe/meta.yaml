@@ -1,5 +1,5 @@
 {% set name = "trio" %}
-{% set version = "0.24.0" %}
+{% set version = "0.25.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ffa09a74a6bf81b84f8613909fb0beaee84757450183a7a2e0b47b455c0cac5d
+  sha256: 9b41f5993ad2c0e5f62d0acca320ec657fdb6b2a2c22b8c7aed6caf154475c4e
 
 build:
   skip: true  # [py<38]
@@ -23,7 +23,7 @@ requirements:
     - pip
   run:
     - python
-    - attrs >=20.1.0
+    - attrs >=23.2.0
     - sortedcontainers
     - idna
     - outcome
@@ -34,7 +34,7 @@ requirements:
 test:
   imports:
     - trio
-    - trio.testing    
+    - trio.testing
   requires:
     - pip
   commands:
