@@ -21,6 +21,7 @@ requirements:
   host:
     - python
     - pip
+    - setuptools >=64
   run:
     - python
     - attrs >=23.2.0
