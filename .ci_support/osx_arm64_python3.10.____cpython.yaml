@@ -20,4 +20,4 @@ target_platform:
 - osx-arm64
 zip_keys:
 - - python
-  - python_impl
+  - channel_sources
