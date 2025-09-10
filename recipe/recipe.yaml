@@ -39,7 +39,6 @@ requirements:
     - if: match(python, "<3.11")
       then: exceptiongroup
 
-    - cffi >=1.14
 tests:
   - python:
       imports:
