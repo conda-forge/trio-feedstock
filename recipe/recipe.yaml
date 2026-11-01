@@ -1,15 +1,14 @@
 schema_version: 1
 
 context:
-  name: trio
   version: 0.35.0
 
 package:
-  name: ${{ name|lower }}
+  name: trio
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  url: https://pypi.org/packages/source/t/trio/trio-${{ version }}.tar.gz
   sha256: 7efb295c78a0ecd1235c5759e620b5da564ca80d2efcb0055423588547248b96
 
 build:
@@ -38,9 +37,7 @@ requirements:
       then: cffi >=1.14
     - if: match(python, "<3.11")
       then: exceptiongroup
-
     - cffi >=1.14
-    - exceptiongroup
 tests:
   - python:
       imports:
