@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: trio
-  version: "0.34.0"
+  version: 0.35.0
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 63b9485408bdfdde544fced107045a8c0086cdc4bd0ef2f797b9e0dd111b964b
+  sha256: 7efb295c78a0ecd1235c5759e620b5da564ca80d2efcb0055423588547248b96
 
 build:
-  number: 1
+  number: 0
   skip: match(python, "<3.10")
   script: ${{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
@@ -40,6 +40,7 @@ requirements:
       then: exceptiongroup
 
     - cffi >=1.14
+    - exceptiongroup
 tests:
   - python:
       imports:
