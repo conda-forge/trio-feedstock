@@ -1,0 +1,6 @@
+noarch_platform:
+  - if: unix
+    then:
+      - unix
+    else:
+      - win

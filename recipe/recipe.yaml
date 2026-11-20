@@ -1,57 +1,90 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
 schema_version: 1
 
 context:
-  version: 0.35.0
+  version: "0.35.0"
+  # `pip check` an annual "latest" python instead of "*", or "any" python
+  python_check_max: "3.15"
 
 package:
   name: trio
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/t/trio/trio-${{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/t/trio/trio-${{ version }}.tar.gz
   sha256: 7efb295c78a0ecd1235c5759e620b5da564ca80d2efcb0055423588547248b96
 
 build:
-  number: 1
-  skip: match(python, "<3.10")
-  script: ${{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
+  number: 2
+  noarch: python
+  script:
+    - ${{ PYTHON }} -m pip install -vv . --no-deps --no-build-isolation --check-build-dependencies
 
 requirements:
-  build:
-    - if: build_platform != target_platform
-      then:
-        - python
-        - cross-python_${{ target_platform }}
   host:
-    - python
+    - python ${{ python_min }}.*
     - pip
-    - setuptools >=64
+    - setuptools >=77
   run:
-    - python
+    - __${{ noarch_platform }}
+    - ${{ "cffi" if noarch_platform == "win" }}
     - attrs >=23.2.0
-    - sortedcontainers
     - idna
     - outcome
+    - python >=${{ python_min }}
     - sniffio >=1.3.0
-    - if: win and not python_impl == 'pypy'
-      then: cffi >=1.14
-    - if: match(python, "<3.11")
-      then: exceptiongroup
+    - sortedcontainers
+  run_constraints:
     - cffi >=1.14
+
 tests:
+  - package_contents:
+      strict: true
+      files:
+        - etc/conda/test-files/trio/**
+      site_packages:
+        - trio/**
+        - trio-${{ version }}.dist-info/**
   - python:
       imports:
         - trio
         - trio.testing
       pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - ${{ python_check_max }}.*
+  - files:
+      source:
+        - pyproject.toml
+        - tests/**
+    requirements:
+      run:
+        - astor
+        - async_generator >=1.9
+        - black
+        - cryptography >=41.0.0
+        - cython
+        - jedi
+        - pylint
+        - pyopenssl >=22.0.0
+        - pyright
+        - pytest >=8.4
+        - python ${{ python_min }}.*
+        - pyyaml
+        - trustme
+    script:
+      - pytest --pyargs trio -vv --color=yes --tb=long -m "not redistributors_should_skip" -k "not (lint_failure or ruff)"
 
 about:
-  license: MIT
-  license_file: LICENSE
+  license: Apache-2.0 OR MIT
+  license_file:
+    - LICENSE
+    - LICENSE.APACHE2
+    - LICENSE.MIT
   summary: An async/await-native I/O library for humans and snake people
-  homepage: https://github.com/python-trio/trio
+  homepage: https://pypi.org/project/trio
   repository: https://github.com/python-trio/trio
-  documentation: https://trio.readthedocs.io/
+  documentation: https://trio.readthedocs.io
 
 extra:
   recipe-maintainers:
